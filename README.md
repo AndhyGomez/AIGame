@@ -23,6 +23,13 @@ Demo of inheritance, creating an AIGame abstract base class with two derived cla
      * java Main
  
 ## Files: 
+### AIGame-Master/
+* s01a.txt
+* s02a.txt
+* s03a.txt
+* s04a.txt
+* s05a.txt
+
 ### src/
 * AIGame.java 
   * Abstract base class
@@ -32,9 +39,6 @@ Demo of inheritance, creating an AIGame abstract base class with two derived cla
   
 * LoShu.java 
   * Contains logic/algorithms for the LoShu game 
-    
-### AIGame-Master/
-
 
 ## Note: 
 1. File to be read must be outside of src folder and must have the format seen below.

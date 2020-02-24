@@ -144,19 +144,29 @@ public class LoShu extends AIGame
 	}
 
 
-
-	public int getMatrixSize()
-
+	public int getMatrixSize(String filePath) throws FileNotFoundException, IOException
 	{
-
-		// Need file to see how to get size 
-
+		// Create scanner to read desired file
+		Scanner thisFile = new Scanner(new File(filePath));
 		
-
-		return matrixRows;
-
-	}
-
+		// Create local arrayList to store first line
+		ArrayList<Integer> firstLine = new ArrayList<Integer>();
+		
+		for(int row = 0; row < 1; row++)
+		{
+			for(int col = 0; col < 1; col++)
+			{
+				if(thisFile.hasNextInt())
+				{
+					firstLine.add(thisFile.nextInt());		
+				}
+			}	
+		}
+		
+		thisFile.close(); // Close the file
+        
+		return firstLine.size();
+           }
 	
 
 	/**

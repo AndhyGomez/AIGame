@@ -145,6 +145,7 @@ public class LoShu extends AIGame
 
         /** creates a scanner class that reads a file for the Matrix size
         @return firstLine.size
+        */
 
 	public int getMatrixSize(String filePath) throws FileNotFoundException, IOException
 	{

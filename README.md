@@ -1,7 +1,7 @@
 # AIGame
 Demo of inheritance, creating an AIGame abstract base class with two derived classes, Sudoku and LoShu
 
-## Steps to Compile: 
+## Steps to Compile: (From command line)
 #### **REQUIRES JAVA TO ALREADY BE INSTALLED ON YOUR MACHINE**
 1. Download project as zip 
 2. A) Windows 
@@ -14,13 +14,13 @@ Demo of inheritance, creating an AIGame abstract base class with two derived cla
      * Open Command Prompt
      * cd ctrl + v (Redirects you to src folder.)
      * javac Sudoku.java or LoShu.java (Depending on which you'd like to run.)
-     * java Sudoku/LoShu *fileName* (Whichever was chosen from the above step)
+     * java Sudoku/LoShu *../fileName* (Whichever was chosen from the above step)
      
    B) MacOs
      * Open Terminal
      * cd cmd + v (Redirects you to src folder.)
-     * javac Main.java
-     * java Main
+     * javac AIGame.java and javac Sudoku.java or LoShu.java (Depending on which you'd like to run.)
+     * java Sudoku/LoShu *../fileName* (Whichever was chosen from the above step)
  
 ## Files: 
 ### AIGame-Master/
@@ -29,6 +29,8 @@ Demo of inheritance, creating an AIGame abstract base class with two derived cla
 * s03a.txt
 * s04a.txt
 * s05a.txt
+* loshu1.txt
+* loshu2.txt
 
 ### src/
 * AIGame.java 
@@ -41,7 +43,7 @@ Demo of inheritance, creating an AIGame abstract base class with two derived cla
   * Contains logic/algorithms for the LoShu game 
 
 ## Note: 
-1. File to be read must be outside of src folder and must have the format seen below.
+1. File to be read must be outside of src folder and must have the format seen below. (Both for Sudoku and LoShu)
 
 0 4 0 0 0 0 1 7 9 
 

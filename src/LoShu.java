@@ -12,7 +12,8 @@ public class LoShu extends AIGame
 	
 	final int numDiagonals = 2;
 	
-	static int size;
+	public static int gridsGenerated = 0;
+	public static int size;
 	
 	/**
 	 * Description: Entry point
@@ -26,7 +27,7 @@ public class LoShu extends AIGame
 		// Variable to hold name of file
 		String fileName = args[0];
 		
-		System.out.println(fileName);
+		System.out.println("Attempting to solve the puzzle... ");
 
 		//Get size and initialize grid to size.
 		size = getMatrixSize(fileName);
@@ -38,11 +39,15 @@ public class LoShu extends AIGame
 
 		System.out.println(size);
 		
-		//puzzle.readPuzzle(fileName);
+		// Print out original puzzle
+		System.out.println(puzzle.toString());
 		
-		grid = puzzle.solve(grid);
+		System.out.println("~~~~~~~~~~~~~~~~" + "\n");
+		
+		grid = puzzle.solve();
 		
 		// Print out solved puzzle
+		System.out.println("Solved with " + gridsGenerated + " attempts.");
 		System.out.println("The solution is: ");
 		System.out.println(puzzle.toString());
 		
@@ -195,13 +200,13 @@ public class LoShu extends AIGame
 	}
 
 	/**
+	 * Description: Method to solve the puzzle
 	 * 
+	 * @return solved puzzle
 	 */
 	protected int[][] solve(int[][] array)
 	{
 		int testNum;
-		
-		int gridsGenerated = 0;
 		
 		// Create new random object
 		Random rand = new Random();
@@ -232,6 +237,17 @@ public class LoShu extends AIGame
 					}
 				}			
 			}
+			
+			// Create a copy of original Grid
+			int[][] gridCopy = new int[size][size];
+			
+			for(int row = 0; row < grid.length; row++) 
+			{
+				for(int col = 0; col < grid.length; col++) 
+				{
+					gridCopy[row][col] = grid[row][col];
+				}
+			}
 
 			// Choose random candidate
 			for(int row = 0; row < grid.length; row++) 
@@ -255,10 +271,6 @@ public class LoShu extends AIGame
 			
 			gridsGenerated++;
 			
-			System.out.println("Grids generated: " + gridsGenerated);
-			
-			displayMatrix(grid);
-			
 			// Reset the grid if solution is incorrect
 			if(!isValid)
 			{
@@ -266,7 +278,7 @@ public class LoShu extends AIGame
 				{
 					for(int col = 0; col < grid.length; col++) 
 					{
-						grid[row][col] = array[row][col];
+						grid[row][col] = gridCopy[row][col];
 					}
 				}
 			}
@@ -292,7 +304,7 @@ public class LoShu extends AIGame
 		// Accumulator
 		int indexAt = 0;
 		
-		int[] sums = new int[(size * size) + numDiagonals];
+		int[] sums = new int[(size + size) + numDiagonals];
 		
 		// Calculate sum of each row and add to array
 		for(int row = 0; row < array.length; row++)
@@ -359,34 +371,6 @@ public class LoShu extends AIGame
 		}
 	
 		return arrayString;	
-	}
-	
-	/**
-	 * Description: Prints a 2D array formatted to display as a matrix
-	 * 
-	 * @param grid 2D square String array
-	 */
-	public static void displayMatrix(int[][] grid)
-	{
-		for(int row = 0; row < grid.length; row++)
-		{
-			for(int col = 0; col < grid[0].length; col++)
-			{
-				if(row == 0 && col == 0)
-				{
-					System.out.print("- - - - - - - - - "
-							+ "" +  "\n");
-				}
-				
-				System.out.print(grid[row][col] + " ");
-				
-				if(col == (grid.length - 1))
-				{
-					System.out.print("\n");
-					System.out.print("- - - - - - - - - " +  "\n");
-				}
-			}
-		}
-	}
+	}	
 }
 

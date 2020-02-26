@@ -1,7 +1,7 @@
 # AIGame
 Demo of inheritance, creating an AIGame abstract base class with two derived classes, Sudoku and LoShu
 
-![JFrameSS](https://user-images.githubusercontent.com/47075449/75216269-74b9cf80-5761-11ea-8267-151a0c4eaf24.png)
+![JFrameSS](https://user-images.githubusercontent.com/47075449/75302413-b69f5000-580b-11ea-84b4-ae37b6619e53.png)
 
 ## Steps to Compile: (From command line)
 #### **REQUIRES JAVA TO ALREADY BE INSTALLED ON YOUR MACHINE**

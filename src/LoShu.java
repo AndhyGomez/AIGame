@@ -36,8 +36,6 @@ public class LoShu extends AIGame
 		
 		// Create a new instance of a LoShu puzzle
 		LoShu puzzle = new LoShu(fileName);
-
-		System.out.println(size);
 		
 		// Print out original puzzle
 		System.out.println(puzzle.toString());
@@ -218,7 +216,7 @@ public class LoShu extends AIGame
 			ArrayList <Integer> candidates = new ArrayList <Integer>();
 		
 			// Populate ArrayList with candidates
-			for(int num = 1; num <= size*size ; num++)
+			for(int num = 1; num <= size * size ; num++)
 			{
 				candidates.add(num);
 			}

@@ -323,19 +323,27 @@ public class Sudoku extends AIGame
 			
 			gridsGenerated++;
 			
-			// Loop through grid again to determine if any row, column, or subgrid is invalid
-gridloop:	for(int row = 0; row < ROWSCOLS; row++)
+			boolean gridLoop = true;
+			
+			while(gridLoop)
 			{
-				for(int col = 0; col < ROWSCOLS; col++)
+				// Loop through grid again to determine if any row, column, or subgrid is invalid
+				for(int row = 0; row < ROWSCOLS; row++)
 				{
-					isValidRow = isRowValid(row);
-					isValidCol = isColValid(col);
-					isValidSubGrid = isSubGridValid(row, col);
-					
-					if(!isValidRow || !isValidCol || !isValidSubGrid)
+					for(int col = 0; col < ROWSCOLS; col++)
 					{
-						break gridloop;
+						isValidRow = isRowValid(row);
+						isValidCol = isColValid(col);
+						isValidSubGrid = isSubGridValid(row, col);
+
+						if(!isValidRow || !isValidCol || !isValidSubGrid)
+						{
+							gridLoop = false;
+						}
 					}
+					
+					if(!gridLoop)
+						break;					
 				}
 			}
 			
